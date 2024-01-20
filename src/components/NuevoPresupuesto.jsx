@@ -19,11 +19,11 @@ const NuevoPresupuesto = ({presupuesto, setPresupuesto, setIsValidPresupuesto}) 
     <div className='conenedor-presupuesto contenedor sombra'>
             <form onSubmit={handlePresupuesto} className='formulario'>
                 <div className='campo'>
-                    <label>Definir Presupuesto</label>
+                    <label>Meta de ahorro</label>
                     <input
                         className='nuevo-presupuesto'
                         type="text"
-                        placeholder='Añade tu presupuesto'
+                        placeholder='Añade tu meta'
                         value={presupuesto}
                         onChange={e => setPresupuesto(Number(e.target.value))}
                     

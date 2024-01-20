@@ -1,5 +1,5 @@
 :root {
-    --azul: #3b82f6;
+    --azul: #3B82F6;
     --blanco: #ffffff;
     --gris-claro: #f5f5f5;
     --gris: #94a3b8;
@@ -145,8 +145,7 @@ header h1 {
     border-left: 5px solid #b91c1c;
     color: #b91c1c;
 }
-.alerta.success {
-}
+
 
 .contenedor {
     width: 90%;
@@ -291,6 +290,7 @@ main {
     width: 10rem;
 }
 
+
 .descripcion-gasto p {
     margin: 0 0 0.3rem 0;
 }
@@ -333,8 +333,22 @@ main {
     cursor: pointer;
 }
 
+.nuevo-ahorro{
+    position: fixed;
+    bottom: 5rem;
+    right: 12rem;
+}
+.nuevo-ahorro img{
+    width: 5rem;
+}
+
+.nuevo-ahorro img:hover{
+    cursor: pointer;
+}
+
 .modal {
     position: absolute;
+    min-height: 300vh;
     background-color: rgb(0 0 0 / 0.92);
     top: 0;
     left: 0;

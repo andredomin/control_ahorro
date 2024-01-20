@@ -2,24 +2,25 @@ import { useState, useEffect } from "react"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import "react-circular-progressbar/dist/styles.css"
 
-const ControlPresupuesto = ({presupuesto, gastos, setGastos, setPresupuesto, setIsValidPresupuesto}) => {
+const ControlPresupuesto = ({presupuesto, gastos, setGastos, ahorros, setAhorros, setPresupuesto, setIsValidPresupuesto}) => {
     
     const [disponible, setDisponible] = useState(0)
     const [gastado,setGastado] = useState(0)
+    const [ahorrado, setAhorrado] = useState(0)
     const [porcentaje, setPorcentaje] = useState(10)
     useEffect(() => {
         const totalGastado = gastos.reduce((total, gasto) => gasto.cantidad + total, 0);
-        const totalDisponible = presupuesto - totalGastado;
+        const totalDisponible = presupuesto + totalGastado;
+        const totalAhorrado = ahorros.reduce((total, ahorro) => ahorro.cantidad + total, 0)
+        const nuevoPorcentaje = (((totalAhorrado-totalGastado)/presupuesto)*100).toFixed(2);
         
-        const nuevoPorcentaje = (((presupuesto - totalDisponible) / presupuesto) * 100).toFixed(2);
-        
-        setDisponible(totalDisponible)
+        setAhorrado(totalAhorrado)
         setGastado(totalGastado)
         setTimeout(() =>{
           setPorcentaje(nuevoPorcentaje)
         }, 1500)
 
-    }, [gastos])
+    }, [gastos, ahorros])
 
 
     const formatearCantidad = (cantidad) => {
@@ -34,6 +35,7 @@ const ControlPresupuesto = ({presupuesto, gastos, setGastos, setPresupuesto, set
 
       if(resultado) {
         setGastos([])
+        setAhorros([])
         setPresupuesto(0)
         setIsValidPresupuesto(false)
       } 
@@ -43,12 +45,12 @@ const ControlPresupuesto = ({presupuesto, gastos, setGastos, setPresupuesto, set
       <div>
         <CircularProgressbar
           styles={buildStyles({
-            pathColor: porcentaje > 100 ? '#DC2626' : '#3B82F6',
+            pathColor: porcentaje >= 100 ? '#c4ad00' : '#3B82F6',
             trailColor: '#F5F5F5',
-            textColor: porcentaje > 100 ? '#DC2626' : '#3B82F6',
+            textColor: porcentaje >= 100 ? '#c4ad00' : '#3B82F6',
           })} 
           value={porcentaje}
-          text={`${porcentaje}% Gastado`}
+          text={`${porcentaje}% Ahorrado`}
         />
       </div>
 
@@ -57,10 +59,10 @@ const ControlPresupuesto = ({presupuesto, gastos, setGastos, setPresupuesto, set
           Resetear app
         </button>
         <p>
-            <span>Presupuesto: </span> {formatearCantidad(presupuesto)}
+            <span>Objetivo: </span> {formatearCantidad(presupuesto)}
         </p>
         <p className={`${disponible <0 ? 'negativo' : ''}`}>
-            <span>Disponible: </span> {formatearCantidad(disponible)}
+            <span>Ahorrado: </span> {formatearCantidad(ahorrado)}
         </p>
         <p>
             <span>Gastado: </span> {formatearCantidad(gastado)} 
