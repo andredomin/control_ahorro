@@ -368,7 +368,7 @@ main {
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     min-height: 300vh;
     background-color: rgb(0 0 0 / 0.92);
     top: 0;
