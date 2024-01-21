@@ -1,10 +1,9 @@
 import { Sparklines, SparklinesLine } from 'react-sparklines';
-import { useRef, useEffect } from 'react';
 const Chart = ( { chart }) => {
   
   return (
-    <div className='chart sombra contenedor'>
-          <Sparklines data={chart}>
+    <div className='chart sombra contenedor' style={{width: '100%', height: '100%' }}>
+          <Sparklines className="spark" data={chart} height={100}>
             <SparklinesLine color="blue" />
           </Sparklines>
         </div>

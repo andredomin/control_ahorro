@@ -240,8 +240,13 @@ main {
     padding-top: 10rem;
 }
 .chart{
+    
     margin-top: 18vh;
     margin-bottom: 8vh;
+}
+
+.spark{
+     position: relative;
 }
 .filtros .campo {
     display: flex;
