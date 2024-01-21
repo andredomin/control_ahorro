@@ -22,6 +22,7 @@ const ListadoAhorro = ({ahorros, setAhorroEditar, eliminarAhorro, ahorrosFiltrad
           ) : (
             <>
             <h2>{ahorros.length ? 'Ingresos' : 'No hay ingresos aún'}</h2>
+            
             {ahorros.map( ahorro => (
             <Ahorro 
             key={ahorro.id}

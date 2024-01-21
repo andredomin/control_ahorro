@@ -8,14 +8,17 @@ const ControlPresupuesto = ({presupuesto, gastos, setGastos, ahorros, setAhorros
     const [gastado,setGastado] = useState(0)
     const [ahorrado, setAhorrado] = useState(0)
     const [porcentaje, setPorcentaje] = useState(10)
+    const [totalIngresos, setTotalIngresos] = useState(0)
     useEffect(() => {
         const totalGastado = gastos.reduce((total, gasto) => gasto.cantidad + total, 0);
         const totalDisponible = presupuesto + totalGastado;
-        const totalAhorrado = ahorros.reduce((total, ahorro) => ahorro.cantidad + total, 0)
-        const nuevoPorcentaje = (((totalAhorrado-totalGastado)/presupuesto)*100).toFixed(2);
+        const totalIngresos = ahorros.reduce((total, ahorro) => ahorro.cantidad + total, 0);
+        const totalAhorrado = (totalIngresos-totalGastado);
+        const nuevoPorcentaje = (((totalAhorrado)/presupuesto)*100).toFixed(2);
         
         setAhorrado(totalAhorrado)
         setGastado(totalGastado)
+        setTotalIngresos(totalIngresos)
         setTimeout(() =>{
           setPorcentaje(nuevoPorcentaje)
         }, 1500)
@@ -24,9 +27,9 @@ const ControlPresupuesto = ({presupuesto, gastos, setGastos, ahorros, setAhorros
 
 
     const formatearCantidad = (cantidad) => {
-        return cantidad.toLocaleString('en-US', {
+        return cantidad.toLocaleString('es-ES', {
             style: 'currency',
-            currency: 'USD'
+            currency: 'EUR',
         })
     }
 
@@ -59,16 +62,18 @@ const ControlPresupuesto = ({presupuesto, gastos, setGastos, ahorros, setAhorros
           Resetear app
         </button>
         <p>
-            <span>Objetivo: </span> {formatearCantidad(presupuesto)}
+            <span>Objetivo:  {formatearCantidad(presupuesto)}</span>
         </p>
         <p className={`${disponible <0 ? 'negativo' : ''}`}>
-            <span>Ahorrado: </span> {formatearCantidad(ahorrado)}
+            <span>Ahorrado: </span> <span id="green">{formatearCantidad(ahorrado)}</span>
         </p>
         <p>
-            <span>Gastado: </span> {formatearCantidad(gastado)} 
+            <span>Gastado: </span> <span id="red">{formatearCantidad(gastado)}</span> 
         </p>
       </div>
+      
     </div>
+    
   )
 }
 

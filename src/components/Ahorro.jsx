@@ -64,7 +64,7 @@ const Ahorro = ({ahorro, setAhorroEditar, ahorroEdit, eliminarAhorro}) => {
         </div>
       </div>
       <p className='cantidad-gasto'>
-                ${ahorro.cantidad}
+                {ahorro.cantidad}€
             </p>
     </div>
       </SwipeableListItem>

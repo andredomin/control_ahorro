@@ -42,7 +42,7 @@ const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar
             setModal(false)
         }, 500)
 
-        
+        console.log('lulu')
         
     }
 
@@ -54,6 +54,7 @@ const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar
             src={CerrarBtn}
             alt='cerrar modal'
             onClick={ocultarModal}
+
             />
       </div>
 
@@ -95,7 +96,7 @@ const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar
                 <option value="suscripciones">Suscripciones</option>
             </select>
         </div>
-        <input type="submit" value={gastoEditar.nombre ? 'Guardar cambios' : 'Añadir Gasto'} />
+        <input className="btn-save" type="submit" value={gastoEditar.nombre ? 'Guardar cambios' : 'Añadir Gasto'} />
       </form>
     </div>
   )

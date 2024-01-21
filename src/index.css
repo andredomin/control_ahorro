@@ -22,6 +22,8 @@ html {
     box-sizing: inherit;
 }
 
+
+
 .fijar {
     overflow: hidden;
     height: 100vh;
@@ -265,6 +267,13 @@ main {
     font-size: 2.2rem;
 }
 
+#green{
+    color: green;
+}
+
+#red{
+    color: red;
+}
 .gasto {
     display: flex;
     justify-content: space-between;
@@ -357,6 +366,7 @@ main {
 }
 .modal .cerrar-modal {
     position: absolute;
+    z-index: 1;
     right: 3rem;
     top: 3rem;
     width: 3rem;
@@ -393,7 +403,22 @@ body .modal {
 .modal label {
     text-align: left;
 }
+@media  (max-width: 600px) {
+    input, select{
+        width: 80%;
+        margin-left: 8vw
+    }
 
+    .formulario input[type="submit"]{
+        width: 80%;
+    }
+
+    .cerrar-modal{
+        margin-right: 3vw;
+    }
+
+    
+}
 .CircularProgressbar .CircularProgressbar-text {
     font-size: 1rem !important;
 }
