@@ -1,5 +1,5 @@
 :root {
-    --azul: #3B82F6;
+    --primary: #3e434b;
     --blanco: #ffffff;
     --gris-claro: #f5f5f5;
     --gris: #94a3b8;
@@ -23,7 +23,10 @@ html {
 }
 
 
-
+.chart{
+    width: 33vw;
+    height: 36vh;
+}
 .fijar {
     overflow: hidden;
     height: 100vh;
@@ -46,7 +49,8 @@ h2 {
 }
 
 header {
-    background-color: var(--azul);
+    background-color: var(--primary);
+    padding-bottom: 4vh;
 }
 
 header h1 {
@@ -77,7 +81,7 @@ header h1 {
     color: var(--blanco);
     margin-bottom: 4rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--azul);
+    border-bottom: 2px solid var(--primary);
 }
 .formulario .campo {
     display: grid;
@@ -85,7 +89,7 @@ header h1 {
 }
 
 .formulario label {
-    color: var(--azul);
+    color: var(--primary);
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -212,7 +216,7 @@ header h1 {
 }
 .contenido-presupuesto span {
     font-weight: 900;
-    color: var(--azul);
+    color: var(--primary);
 }
 .reset-app {
     border: none;
@@ -235,7 +239,10 @@ header h1 {
 main {
     padding-top: 10rem;
 }
-
+.chart{
+    margin-top: 18vh;
+    margin-bottom: 8vh;
+}
 .filtros .campo {
     display: flex;
     align-items: center;
@@ -425,7 +432,7 @@ body .modal {
 
 /*** SWIPE LIST OVERRIDES **/
 .swipe-action__leading {
-    background-color: var(--azul);
+    background-color: var(--primary);
     color: var(--blanco);
     margin-bottom: 2rem;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import ControlPresupuesto from './ControlPresupuesto'
 import NuevoPresupuesto from './NuevoPresupuesto'
 
+
 const Header = ({ presupuesto, setPresupuesto, isValidPresupuesto, setIsValidPresupuesto, ahorros, setAhorros, gastos, setGastos}) => {
   return (
     <header>

@@ -6,8 +6,9 @@ import ModalAhorro from './components/ModalAhorro'
 import ListadoGastos from './components/ListadoGastos'
 import ListadoAhorro from './components/ListadoAhorro'
 import { generarId } from './helpers'
-import IconoNuevoGasto from './img/nuevo-gasto.svg'
+import IconoNuevoGasto from './img/gasto.png'
 import IconoAhorro from './img/icono_ahorro.svg'
+import Chart from './components/Chart'
 function App() {
   
   const [presupuesto, setPresupuesto] = useState(Number(localStorage.getItem('presupuesto') ?? 0))
@@ -177,6 +178,7 @@ localStorage.setItem('gastos', JSON.stringify(gastos) ?? [])
       {isValidPresupuesto && (
         <>
           <main>
+            
           <Filtros 
              filtro={filtro}
              setFiltro={setFiltro}

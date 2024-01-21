@@ -23,7 +23,6 @@ const Ahorro = ({ahorro, setAhorroEditar, ahorroEdit, eliminarAhorro}) => {
   const leadingActions = () =>(
     <LeadingActions>
       <SwipeAction onClick={()=> {
-        console.log('Clicked on Ahorro:', ahorro);
         setAhorroEditar(ahorro)}}>
         Editar
       </SwipeAction>
